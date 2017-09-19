@@ -1,0 +1,156 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_orderitem.scss
+ *
+ */
+
+.swg {
+
+  .cart-item {
+    margin-right: 3%;
+    width: 47%;
+  }
+  @media (max-width: 1024px) {
+    .cart-item {
+      width: 100%;
+      margin-right: 0%;
+    }
+  }
+
+  .cart-pad {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .orderitem {
+    display: flex;
+    border: 1px solid $colour-border;
+    margin-bottom: 10px;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $colour-link-over;
+    }
+
+    .cart-panel-bottom {
+      margin-bottom: 8px;
+    }
+
+    .orderitem-image {
+      flex: 1;
+      margin: 12px;
+    }
+
+    .orderitem-info {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 5px;
+      background: white;
+
+      .orderitem-title{
+        margin-top: 15px;
+        a {
+          text-decoration: none;
+        }
+
+        .item-msg.error{
+          color: $colour-pink;
+        }
+      }
+
+      .orderitem-price{
+        margin-top: 0;
+      }
+
+      .orderitem-options{
+        margin-top: 15px;
+      }
+
+      .orderitem-qty {
+
+        .qty-loading{
+          display: none;
+        }
+
+        select {
+          margin: 0;
+        }
+      }
+
+      .orderitem-buttons{
+        text-align: right;
+        a {
+          text-decoration: none;
+        }
+
+        .btn-edit {
+          font-size: 0;
+          margin-right:6px;
+          &:before {
+            @include icon('\f040');
+            font-size: 18px;
+          }
+
+          &:hover {
+            color: $colour-bag-rollover;
+          }
+        }
+
+        .wishlist {
+          &.active {
+            .btn-wishlist:before {
+              color: $colour-bag-rollover;
+              @include icon('\f004');
+            }
+          }
+        }
+
+          .btn-wishlist {
+            font-size: 0;
+            margin-right:2px;
+            &:before {
+              @include icon('\f08a');
+              font-size: 18px;
+            }
+
+            &:hover {
+              color: $colour-bag-rollover;
+            }
+          }
+        }
+
+        .btn-delete {
+          font-size: 0;
+          margin-right:5px;
+          &:before {
+            @include icon('\f014');
+            font-size: 18px;
+          }
+
+          &:hover {
+            color: $colour-bag-rollover;
+          }
+        }
+      }
+    }
+
+    .checkout-item {
+      margin-bottom: 25px;
+    }
+
+    .cart-item {
+      margin-bottom: 22px;
+    }
+}

@@ -1,0 +1,89 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_layout.scss
+ * Layout using flexbox
+ *
+ */
+
+.swg {
+
+  .flexgrid {
+    display: flex;
+  }
+
+  .flexgrid-col{
+    flex: 1;
+  }
+
+  .flex-bottom{
+    align-self: flex-end;
+  }
+
+  .flex-center{
+    display: flex;
+    justify-content: center;
+  }
+
+  .flex-right{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .flex-left{
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .flex-grid-thirds {
+    display: flex;
+    .flex-grid-thirds-col-1 {
+      flex: 1;
+    }
+    .flex-grid-thirds-col-2 {
+      flex: 2;
+    }
+  }
+  .flex-cart-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .flex-grid {
+    display: flex;
+    .flex-grid-col-equal{
+
+      padding: 10px;
+    }
+    .col-left {
+      flex: 1;
+      order: 2;
+    }
+    .col-middle {
+      flex: 1;
+      order: 4;
+    }
+    .col-right {
+      flex: 1;
+      order: 6;
+    }
+  }
+  @media (max-width: 1024px) {
+    .flex-grid {
+      display: block;
+    }
+    .flex-grid-thirds {
+      display: block;
+    }
+    .col-middle{
+      margin-top: -152px;
+    }
+    .col-left{
+      margin-top: 50px;
+    }
+  }
+}

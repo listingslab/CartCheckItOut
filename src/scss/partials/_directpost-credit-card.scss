@@ -1,0 +1,59 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_directpost-credit-card.scss
+ *
+ */
+
+.swg {
+
+  .directpost-credit-card {
+
+    .flexicols {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .flexirow {
+      display: flex;
+      flex-direction: column;
+
+
+    }
+
+    .flexicol {
+      flex: 1;
+    }
+
+    .exp {
+      flex: 3;
+      padding-right: 8px;
+
+    }
+
+    .cvv{
+      flex: 2;
+      padding-left: 8px;
+      .question-mark{
+        height:16px;
+        width:16px;
+        padding-top: 2px;
+      }
+    }
+
+    .ie11-fix{
+      // Conditional fix for IE 11 (http://www.mediacurrent.com/blog/write-conditional-css-ie10-and-11)
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        padding-top: 90px;
+      }
+    }
+
+  }
+
+
+}

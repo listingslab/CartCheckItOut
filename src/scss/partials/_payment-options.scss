@@ -1,0 +1,148 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_payment-options.scss
+ *
+ */
+
+.swg {
+
+  .payment-options {
+
+    margin-bottom: 15px;
+
+    .method-html {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .card-info-pad{
+      margin-top: 10px;
+    }
+
+    .method-buttons {
+      margin-top: 3px;
+
+      .btn-method {
+        float: left;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+
+    }
+
+    .payment-separator {
+      margin-top: 25px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid $colour-border;
+    }
+
+    .input-box{
+      display: flex;
+    }
+    .v-fix, {
+      flex: 1;
+    }
+
+
+    #payment_form_aligent_directpost_securepay{
+      margin-top: -16px;
+    }
+
+    #payment_form_aligent_directpost_securepay li:first-child {
+    }
+
+    #payment_form_aligent_directpost_securepay li:not(:first-child){
+    }
+
+    #aligent_directpost_securepay_cc_number {
+      margin-top: 7px;
+    }
+
+
+    #aligent_directpost_securepay_expiration{
+      margin-top: 7px;
+      margin-right: 5px;
+    }
+
+
+
+    #aligent_directpost_securepay_cc_cid {
+      margin-top: 7px;
+    }
+
+    #aligent_directpost_securepay_expiration_yr{
+      margin-top: 7px;
+      margin-left:5px;
+    }
+
+    #afterpay-logo, #afterpay-callout{
+      display:none;
+    }
+
+    #method-paypal_express{
+      text-align: center;
+      img{
+        display: none;
+      }
+    }
+
+    #method-afterpaypayovertime {
+
+      #payment_form_afterpaypayovertime{
+        ul {
+          padding: 0;
+        }
+      }
+
+      #payment_form_afterpaypayovertime .instalments li {
+        padding: 5px;
+      }
+
+      #payment_form_afterpaypayovertime .instalments .cost {
+        font-size: 14px;
+      }
+
+    }
+
+    #method-Sxml, #method-aligent_directpost_securepay, #method-paypal_express{
+
+      fieldset {
+        border: none;
+        padding: 0;
+      }
+
+      li{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul{
+        padding: 0;
+        margin: 0;
+      }
+
+      .v-fix{
+        display: flex;
+      }
+
+    }
+
+    #aligent_directpost_securepay_cc_cid {
+
+      display: block;
+      max-width: 80px;
+    }
+
+    .input-box {
+      display: block;
+    }
+
+  }
+}

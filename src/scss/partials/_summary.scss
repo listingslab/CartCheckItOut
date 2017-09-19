@@ -1,0 +1,31 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_summary.scss
+ *
+ */
+
+.swg {
+  .summary {
+
+    .summary-loading {
+      display: none;
+    }
+    .back-to-bag{
+
+      a {
+        color: $grey-link;
+        font-weight: bold;
+        font-size: 13px;
+      }
+      a, a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

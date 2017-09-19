@@ -1,0 +1,28 @@
+
+###########################
+## Aligent_CartCheckItOut #
+###########################
+
+# Main module file
+app/etc/modules/Aligent_CartCheckItOut.xml app/etc/modules/Aligent_CartCheckItOut.xml
+
+# Module code
+app/code/community/Aligent/CartCheckItOut/ app/code/community/Aligent/CartCheckItOut/
+
+# Layout
+app/design/frontend/base/default/layout/aligent/cartcheckitout/ app/design/frontend/base/default/layout/aligent/cartcheckitout/
+
+# templates
+app/design/frontend/base/default/template/aligent/cartcheckitout/ app/design/frontend/base/default/template/aligent/cartcheckitout/
+
+# JavaScript
+js/aligent/cartcheckitout/ js/aligent/cartcheckitout/
+
+# Images
+skin/frontend/base/default/images/aligent/cartcheckitout/ skin/frontend/base/default/images/aligent/cartcheckitout/
+
+# CSS
+skin/frontend/base/default/css/aligent/cartcheckitout/ skin/frontend/base/default/css/aligent/cartcheckitout/
+
+# Directpay Credit Card
+app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/directpost.phtml app/design/frontend/swimwear/default/template/aligent_directpost/form/directpost.phtml

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/checkout/screens/email.phtml
+ *
+ */
+?>
+
+<div class="email">
+    <h1 class="checkout-title"><?php echo $this->__('First things first'); ?></h1>
+    <div class="email-form">
+        <div class="screen-desc">
+            <?php echo $this->__('Please enter your email address to continue to delivery &amp; payment'); ?>
+        </div>
+        <div class="form-label" id="email-feedback">
+            <?php echo $this->__('Email Address'); ?>
+        </div>
+        <input
+            id="input-email"
+            type="text"
+            autocomplete="email"
+            value=""
+        />
+        <input
+            id="btn-continue"
+            type="button"
+            value="<?php echo $this->__('CONTINUE'); ?>"
+        />
+    </div>
+    <div class="email-loading">
+        <img
+            alt="loading..."
+            src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+        <p>Checking email ...</p>
+    </div>
+</div>

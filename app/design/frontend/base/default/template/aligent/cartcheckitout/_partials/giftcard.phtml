@@ -1,0 +1,42 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/giftcard.phtml
+ *
+ */
+?>
+<div class="giftcard">
+    <div class="form-label"><?php echo $this->__('Gift Card'); ?></div>
+    <div class="gift">
+        <div class="input-gift">
+            <input
+                title="Promo Code"
+                id="giftcard"
+                type="text"
+                name="giftcard"
+            />
+        </div>
+        <div class="gift-submitter">
+            <div class="submit-gift">
+                <input
+                    id="apply-gift"
+                    type="button"
+                    value="<?php echo $this->__('Redeem'); ?>"
+                />
+            </div>
+            <div class="giftcard-loading">
+                <img
+                    alt="Checking giftcard..."
+                    src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+            </div>
+        </div>
+    </div>
+    <div class="gift-feedback"></div>
+</div>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/cartpromo.phtml
+ *
+ */
+?>
+<div class="promocode">
+    <div class="form-label"><?php echo $this->__('Promo Code'); ?></div>
+    <div class="promo">
+        <div class="input-promo">
+            <input
+                title="Promo Code"
+                id="promocode"
+                type="text"
+            />
+        </div>
+        <div class="promo-submitter">
+            <div class="submit-promo">
+                <input
+                    id="apply-promo"
+                    type="button"
+                    value="<?php echo $this->__('Apply'); ?>"
+                />
+            </div>
+            <div class="promocode-loading">
+                <img
+                    alt="Checking promocode..."
+                    src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+                &nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="promo-feedback"></div>
+</div>

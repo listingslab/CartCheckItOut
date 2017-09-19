@@ -1,0 +1,109 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/delivery-address.phtml
+ *
+ */
+?>
+<?php
+?>
+<div class="billing-address">
+
+    <input
+        type="checkbox"
+        class="checkbox"
+        id="billing-address-checkbox"
+        <?php echo (!$this->sameAsShipping()) ? 'checked' : ''; ?>
+    />
+
+    <label for="billing-address-checkbox"><?php echo $this->__('Bill To Different Address'); ?></label>
+
+    <div class="billing-address-hidden<?php echo ($this->sameAsShipping()) ? ' hidden' : ''; ?>">
+        <div class="form-label">
+            <?php echo $this->__('First Name'); ?>
+        </div>
+        <input
+            id="input-billing-firstname"
+            class="required-input"
+            type="text"
+        />
+        <div class="form-label">
+            <?php echo $this->__('Last Name'); ?>
+        </div>
+        <input
+            id="input-billing-lastname"
+            class="required-input"
+            type="text"
+        />
+        <div class="country-select">
+            <div class="form-label"><?php echo $this->__('Billing Country'); ?>
+            </div>
+            <select id="select-billing">
+                <?php echo $this->getChildHtml("checkout.countries", false); ?>
+            </select>
+        </div>
+
+        <div class="form-label"><?php echo $this->__('Billing Address'); ?></div>
+        <input
+            id="billing-address"
+            class="required-input"
+            type="text"
+            placeholder=""
+        />
+        <div class="billing-address-not-found">
+            <?php echo $this->__('Your address not there?'); ?> <a href="#" id="billing-address-not-found" class="black-link"><?php echo $this->__('Click here'); ?></a>
+        </div>
+
+        <div class="billing-address-manual-entry">
+            <div class="form-label"><?php echo $this->__('Street Address'); ?></div>
+            <input
+                id="billing-street-address-ip"
+                class="required-input"
+                type="text"
+                maxlength="28"
+                autocomplete="street-address"
+            />
+            <div class="form-label"><?php echo $this->__('City'); ?></div>
+            <input
+                id="billing-city"
+                class="required-input"
+                type="text"
+                autocomplete="address-level2"
+            />
+            <div class="form-label"><?php echo $this->__('State'); ?></div>
+            <select id="billing-state-select"></select>
+            <input
+                id="billing-state-text"
+                class="required-input"
+                type="text"
+                autocomplete="address-level1"
+            />
+            <div class="form-label"><?php echo $this->__('Postcode'); ?></div>
+            <input
+                id="billing-postcode"
+                class="required-input"
+                type="text"
+                autocomplete="postal-code"
+            />
+        </div>
+
+        <div class="telephone">
+            <div class="form-label"><?php echo $this->__('Phone Number'); ?></div>
+            <input
+                id="billing-telephone"
+                class="input-text-field"
+                type="text"
+                autocomplete="tel"
+            />
+        </div>
+
+    </div>
+
+</div>

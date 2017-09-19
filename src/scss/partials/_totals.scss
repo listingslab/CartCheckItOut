@@ -1,0 +1,42 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_totals.scss
+ *
+ */
+
+.swg {
+
+  .totals {
+    border: 1px solid $colour-border;
+    background: $colour-payment-bg;
+    padding: 25px;
+    border-radius: 3px;
+    margin-bottom: 25px;
+
+    .btn-delete {
+      text-decoration: none;
+      font-size: 0;
+      &:before {
+        @include icon('\f014');
+        font-size: 13px;
+      }
+    }
+
+    .btn-delete:hover {
+      text-decoration: none;
+    }
+
+    .grand_total{
+      margin-top: 25px;
+      font-weight:bold;
+    }
+
+  }
+
+}

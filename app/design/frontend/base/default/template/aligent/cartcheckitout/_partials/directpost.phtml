@@ -1,0 +1,101 @@
+<?php
+    /** @var Aligent_Directpost_Block_Form_Directpost $this */
+    $_code = $this->getMethodCode();
+?>
+
+<div class="directpost-credit-card">
+
+    <h1><?php echo $this->getMethod()->getConfigData('message');?></h1>
+
+    <div class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+        <?php if($this->getConfigData('card_type_select')): ?>
+            <label for="<?php echo $_code ?>_cc_type" class="required"><em>*</em><?php echo $this->__('Credit Card Type') ?></label>
+            <div class="input-box">
+                <select id="<?php echo $_code ?>_cc_type" name="payment[cc_type]" class="required-entry validate-cc-type-select" data-direct_post_name="<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_TYPE) ?>">
+                    <option value=""><?php echo $this->__('--Please Select--')?></option>
+                    <?php $_ccType = $this->getInfoData('cc_type') ?>
+                    <?php foreach ($this->getCcAvailableTypes() as $_typeCode => $_typeName): ?>
+                        <option value="<?php echo $_typeCode ?>"<?php if($_typeCode==$_ccType): ?> selected="selected"<?php endif ?>><?php echo $_typeName ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        <?php endif; ?>
+
+
+        <div class="flexirow">
+            <div class="flexicol">
+                <label for="<?php echo $_code ?>_cc_number"><?php echo $this->__('Credit Card Number') ?></label>
+                <div class="input-box">
+                    <input type="text" id="<?php echo $_code ?>_cc_number" title="<?php echo $this->__('Credit Card Number') ?>" class="input-text validate-cc-number validate-cc-type" data-direct_post_name="<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_NUMBER) ?>" value="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="flexicols">
+<!--ie11-fix-->
+            <div class="flexicol exp ie11-fix">
+                <label for="<?php echo $_code ?>_expiration"><?php echo $this->__('Expiration Date') ?></label>
+                <select id="<?php echo $_code ?>_expiration" name="payment[cc_exp_month]" class="month validate-cc-exp required-entry" data-direct_post_name="<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_EXP_MONTH)?>">
+                    <?php $_ccExpMonth = $this->getInfoData('cc_exp_month') ?>
+                    <?php foreach ($this->getCcMonths() as $k=>$v): ?>
+                        <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpMonth): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+
+
+
+            <div class="flexicol exp ie11-fix">
+                <?php $_ccExpYear = $this->getInfoData('cc_exp_year') ?>
+                <label for="<?php echo $_code ?>_expiration_yr">&nbsp;</label>
+                <select id="<?php echo $_code ?>_expiration_yr" name="payment[cc_exp_year]" class="year" data-direct_post_name="<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_EXP_YEAR) ?>">
+                    <?php foreach ($this->getCcYears() as $k=>$v): ?>
+                        <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpYear): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+
+
+
+            <div class="flexicol cvv ie11-fix">
+                <label for="<?php echo $_code ?>_cc_cvv"><?php echo $this->__('CVV') ?>
+                    <a
+                            href="#"
+                            id="what_is_cvv"
+                            title="What is CVV?"
+                    >
+                    <img
+                            class="question-mark"
+                            align="right"
+                            alt="What is CVV?"
+                            src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/system/questionMark.png'); ?>" /></a></label>
+                <div class="input-box">
+                    <input type="text" id="<?php echo $_code ?>_cc_cid" title="<?php echo $this->__('CVV') ?>" class="input-text cvv required-entry validate-cc-cvn" data-direct_post_name="<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_CVV) ?>" value="" />
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <img
+        class="cvv-image"
+        alt="What is CVV?"
+        src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/payment/cvv.gif'); ?>" />
+
+    <script type="text/javascript">
+        if('<?php echo $_code ?>' == '<?php echo Aligent_Directpost_Model_Payment_Method_Cybersource::PAYMENT_METHOD_CODE?>') {
+          var fieldMapper = new Aligent.Directpost.FieldMapper.Cybersource();
+          fieldMapper.ccTypeId = "<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_TYPE) ?>";
+          fieldMapper.expiryMonthId = "<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_EXP_MONTH) ?>";
+          fieldMapper.expiryYearId = "<?php echo $this->getFieldName(Aligent_Directpost_Model_Adapter_Directpost_Interface::FIELD_ID_CC_EXP_YEAR) ?>";
+          fieldMapper.ccTypes = <?php echo json_encode($this->getConfigData(Aligent_Directpost_Model_Adapter_Directpost_Interface::CC_TYPE_CONFIG)) ?>;
+
+          Aligent.Directpost.getInstance().setFieldMapper(fieldMapper);
+        }
+        Aligent.Directpost.getInstance().bindFields('payment_form_<?php echo $_code ?>');
+        Validation.creditCartTypes.set('DC', [new RegExp('^3(?:0[0-5]|[68][0-9])[0-9]{11}$'), new RegExp('^[0-9]{3}$'), true]);
+    </script>
+
+</div>
+

@@ -1,0 +1,24 @@
+<div class="previouscart">
+    <h1 class="checkout-title" id="previouscart-title">Your previous cart</h1>
+    <div id="previouscart-body">
+        <div class="previouscart-notice">
+            <div id="previouscart-desc" class="screen-desc">
+                <?php echo $this->__('Welcome back! We noticed there were some items left in your bag from last time.'); ?>
+                <p><?php echo $this->__('Would you like to:'); ?></p>
+            </div>
+            <div class="previouscart-options">
+                <p><input id="previouscart-merge" type="button" value="<?php echo $this->__('Add existing items to current bag'); ?>" />
+                <p><input id="previouscart-cart" type="button" value="<?php echo $this->__('Add some items to current bag'); ?>" /></p>
+                <p><a href="#" id="previouscart-abandon"><?php echo $this->__('Proceed without changing current bag'); ?></a></p>
+            </div>
+        </div>
+        <div id="previouscart-count" class="num-items"></div>
+        <div id="previouscart-content"></div>
+    </div>
+    <div class="previouscart-loading">
+        <img
+            alt="Logging in..."
+            src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+        <p><span id="previouscart_loading_message"></span></p>
+    </div>
+</div>

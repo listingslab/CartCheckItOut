@@ -1,0 +1,46 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/checkout/screens/payment.phtml
+ *
+ */
+?>
+
+
+<div class="payment">
+    <h1 class="checkout-title"><?php echo $this->__('Payment'); ?></h1>
+
+    <?php echo $this->getChildHtml("checkout.payment.methods", false); ?>
+    <?php echo $this->getChildHtml("checkout.promo-code", false); ?>
+    <?php echo $this->getChildHtml("checkout.gift-card", false); ?>
+    <?php echo $this->getChildHtml("checkout.newsletter", false); ?>
+    <?php echo $this->getChildHtml("checkout.shipping-banner", false); ?>
+    <?php echo $this->getChildHtml("checkout.totals", false); ?>
+
+    <div class="checkout-error">
+        <?php echo $this->__('ERROR.'); ?>
+    </div>
+
+    <div class="checkout-proceed">
+        <input
+           value="<?php echo $this->__('PLACE YOUR ORDER'); ?>"
+           id="checkout-proceed"
+           type="button"
+        />
+    </div>
+
+    <div class="order-loading">
+        <img
+            alt="Placing order ..."
+            src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+        <p>Placing order ...</p>
+    </div>
+
+</div>

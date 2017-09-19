@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="checkout.payment.methods.inner">
+            <action method="setTemplate">
+                <template>aligent/cartcheckitout/_partials/payment-options.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+</layout>

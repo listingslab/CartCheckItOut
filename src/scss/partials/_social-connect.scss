@@ -1,0 +1,33 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_social-connect.scss
+ *
+ */
+
+.swg {
+  .social-connect {
+
+    .social-instructions{
+      margin-top: 25px;
+      margin-bottom: 10px;
+
+    }
+
+    .clearer{
+      float: none;
+      .inchoo-socialconnect-google {
+        float: left;
+        margin-left: 10px;
+      }
+      .inchoo-socialconnect-facebook{
+        float: left;
+      }
+    }
+  }
+}

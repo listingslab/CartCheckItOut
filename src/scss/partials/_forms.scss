@@ -1,0 +1,95 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_forms.scss
+ *
+ */
+
+.swg {
+
+  .form-label {
+    margin-bottom: 6px;
+  }
+
+  .form-label-subtext {
+    font-size: 10px;
+    margin-bottom: 6px;
+    color: $colour-form-label-subtext;
+  }
+
+  #delivery-address, #billing-address{
+    font-size: 16px;
+  }
+
+  .qty {
+    width: 50px;
+    font-size:14px;
+    padding: 0;
+    padding-left: 5px;
+    height:30px;
+    border-radius: 0;
+  }
+
+  select {
+    border: 1px solid $colour-border;
+    padding-left: 10px;
+    height:50px;
+    font-size:16px;
+    line-height: normal;
+    border-radius: 5px;
+    background-image: url('/skin/frontend/base/default/images/aligent/cartcheckitout/down-arrow.png');
+    background-repeat:no-repeat;
+    background-position: right;
+  }
+
+  input[type="text"] {
+    padding-left: 10px;
+    height:50px;
+    font-size:16px;
+    line-height: normal;
+    border-radius: 3px;
+  }
+
+  input[type="password"] {
+    border-radius: 3px;
+    background: $colour-white;
+    padding-left: 10px;
+    height:50px;
+    font-size:16px;
+    line-height: normal;
+  }
+
+  input[type="submit"], input[type="button"]{
+    border-radius: 5px;
+    border: 1px solid $colour-border;
+    background: $colour-button;
+    border-radius: 3px;
+    width: 100%;
+    padding: 15px;
+    color: $colour-white;
+    font-weight: bold;
+  }
+
+  input[type="button"]{
+    border-radius: 5px;
+  }
+
+  input[type="button"]:hover, input[type="submit"]:hover {
+    background: $colour-button-over;
+  }
+
+  input[type="button"]:disabled {
+    background: $grey-light;
+    color: $grey-dark;
+  }
+
+  .uppercase-field {
+    text-transform: uppercase;
+  }
+
+}

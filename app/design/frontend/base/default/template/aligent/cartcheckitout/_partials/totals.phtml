@@ -1,0 +1,53 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/totals.phtml
+ *
+ */
+?>
+<div class="totals">
+    <div class="totals-display">
+    <?php foreach($this->getTotals() as $total): ?>
+        <div class="flexgrid <?php echo $total['code']; ?>">
+            <div class="flexgrid-col">
+                <?php if ($total['code'] == 'discount' ): ?>
+                    <a  href="#"
+                        class="btn-delete remove-discount"
+                        title="remove <?php echo $total['title']; ?>">
+                        remove</a>&nbsp;
+                <?php endif; ?>
+                <?php if ($total['code'] == 'giftcardaccount' ): ?>
+                    <a  href="#"
+                        class="btn-delete remove-giftcard"
+                        id="<?php echo $total['gid']; ?>"
+                        title="remove <?php echo $total['title']; ?>">
+                        remove</a>&nbsp;
+                <?php endif; ?>
+                <?php echo $total['title']; ?>
+            </div>
+            <div class="flexgrid-col flex-right" id="<?php echo $total['code']; ?>">
+                <?php if($total['value'] === "$0.00"): ?>
+                    <?php echo $this->__('FREE'); ?>
+                <?php else: ?>
+                    <?php echo $total['value']; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    </div>
+    <div class="totals-loading flexgrid">
+        <div class="flexgrid-col"><?php echo $this->__('Updating totals ...'); ?></div>
+        <div class="flexgrid-col flex-right" id="shipping">
+            <img
+                alt="loading..."
+                src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_grey.gif'); ?>" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_headers.scss
+ *
+ */
+
+.swg {
+
+  .screen-desc {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .num-items {
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  .checkout-title {
+    position: relative;
+    text-align: center;
+    color: black;
+    padding-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: .02em;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -20px;
+      content: '';
+      background-color: $colour-brand;
+      height: 2px;
+      width: 40px;
+    }
+  }
+
+  .swg-cart-title {
+    border-bottom: 1px solid $grey-mid;
+    text-transform: none;
+    margin-bottom: 25px;
+
+    h1{
+      padding: 1.5% 0 1.5% 0;
+      margin: 0;
+    }
+
+  }
+
+}
+

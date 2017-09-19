@@ -1,0 +1,25 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/shipping-banner.phtml
+ *
+ */
+?>
+<div class="cart-shipping-banner" <?php echo ($this->isFreeShippingAvailable()) ? '' : 'style="display:none;"' ?>>
+    <div class="flexgrid">
+        <div class="flexgrid-col flex-center" id="shipping-banner-content">
+            <?php if($this->isFreeShipping()): ?>
+                <?php echo $this->__('Enjoy&nbsp;<span class="bold">Free Express Shipping</span>&nbsp;on us!'); ?>
+            <?php else: ?>
+                <?php echo $this->__('You are ' . $this->getCurrencySymbol() .'&nbsp;<strong>'. $this->amountTillFreeShipping() .'</strong>&nbsp;away from&nbsp;<span>Free Shipping</span>'); ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>

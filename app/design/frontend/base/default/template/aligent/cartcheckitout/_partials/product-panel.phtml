@@ -1,0 +1,98 @@
+<?php
+/**
+ * Aligent CheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/cart-item.phtml
+ *
+ */
+
+    $item = $this->getCartItem();
+    $product = $item->getProduct();
+?>
+<div class="orderitem <?php echo ($this->isCart()) ? 'cart-item' : 'checkout-item'; ?>" id="product-<?php echo $product->getId(); ?>" data-item-id="<?php echo $item->getId(); ?>">
+    <div class="orderitem-image">
+        <a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($product, 'small_image'), null, true) ?>" class="product-image">
+            <img id="product-collection-image-<?php echo $product->getId(); ?>"
+                 src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(170, 260); ?>"
+                 alt="<?php echo $this->stripTags($this->getImageLabel($product, 'small_image'), null, true) ?>" />
+        </a>
+    </div>
+    <div class="orderitem-info">
+        <div class="orderitem-title">
+            <a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $this->stripTags($product->getName(), null, true) ?>">
+                <strong><?php echo $this->helper('catalog/output')->productAttribute($product, $product->getName(), 'name'); ?></strong>
+            </a>
+            <div class="orderitem-price">
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <div class="product-unit-price">
+                        <?php echo Mage::helper('checkout')->formatPrice($item->getCalculationPrice()) ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <div class="product-unit-price">
+                        <?php $_incl = $this->helper('checkout')->getPriceInclTax($item); ?>
+                        <?php echo Mage::helper('checkout')->formatPrice($_incl-$item->getWeeeTaxDisposition()); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php if ($this->getOptionList() !== null): ?>
+                <div class="orderitem-options">
+                    <?php foreach ($this->getOptionList() as $option):
+                            echo $option['label'] .': '. $option['value'] .'<br />';
+                    endforeach; ?>
+                </div>
+            <?php endif; ?>
+            <?php if(!$this->isCart()): ?>
+                <div class="orderitem-qty">
+                    <?php echo $this->__('Quantity: ')?><?php echo $item->getQty()?>
+                </div>
+            <?php endif; ?>
+            <div class="orderitem-error" id="error-<?php echo $item->getId(); ?>">
+                <?php if ($messages = $this->getMessages()): ?>
+                    <?php foreach ($messages as $message): ?>
+                        <p class="item-msg <?php echo $message['type'] ?>">* <?php echo $this->escapeHtml($message['text']) ?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php if($this->isCart()): ?>
+        <div class="flexgrid cart-panel-bottom">
+
+            <div class="orderitem-qty flexgrid-col flex-bottom">
+                <strong><?php echo $this->__('QTY')?></strong><br />
+                <select class="qty" id="<?php echo $item->getId(); ?>">
+                    <?php
+                        for ($x = 1; $x <= 5; $x++) {
+                            $selected = '';
+                            if ($item->getQty() === $x){
+                                $selected = ' selected';
+                            }
+                            echo "<option value=" . $x  . $selected . ">" . $x . "</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+
+            <div class="orderitem-buttons flexgrid-col flex-bottom">
+
+                <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Edit')) ?>" class="btn-edit">
+                    <?php echo $this->__('Edit') ?>
+                </a>
+
+                <a href="<?php echo ($this->helper('wishlist')->isAllowInCart()) ? $this->helper('wishlist')->getMoveFromCartUrl($item->getId()) : $this->helper('wishlist')->getAddUrl($product); ?>" class="wishlist" title="<?php echo $this->__('Move to Wishlist')?>" data-product-id="<?php echo $product->getId(); ?>"><i class="btn-wishlist"></i></a>
+
+                <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-delete">
+                    <?php echo $this->__('Remove')?>
+                </a>
+
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>

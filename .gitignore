@@ -1,0 +1,12 @@
+
+## cartcheckitout
+
+\.idea/
+src/node_modules/
+
+# Do not track compiled front-end code
+skin/frontend/base/default/css/aligent/cartcheckitout/cartcheckitout\.css
+js/aligent/cartcheckitout/cartcheckitout\.js
+
+# Do not track compiled front-end graphic assets
+skin/frontend/base/default/images/aligent/cartcheckitout/assets

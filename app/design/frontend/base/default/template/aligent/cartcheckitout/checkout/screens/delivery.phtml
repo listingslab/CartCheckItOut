@@ -1,0 +1,53 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/checkout/screens/delivery.phtml
+ *
+ */
+?>
+
+<div class="delivery">
+    <h1 class="checkout-title"><?php echo $this->__('Delivery'); ?></h1>
+    <div class="form-label first-name-pad"><?php echo $this->__('First Name'); ?></div>
+    <input
+        name="given-name"
+        autocomplete="given-name"
+        id="input-firstname"
+        type="text"
+        maxlength="255"
+    />
+    <div class="form-label"><?php echo $this->__('Last Name'); ?></div>
+    <input
+        name="family-name"
+        autocomplete="family-name"
+        id="input-lastname"
+        type="text"
+        maxlength="255"
+    />
+    <div class="country-select">
+        <div class="form-label"><?php echo $this->__('Ship to'); ?> <span class="form-label-subtext"><?php echo $this->__('*All our parcels are sent EXPRESS'); ?></span>
+        </div>
+        <select id="select-shipping">
+            <?php echo $this->getChildHtml("checkout.countries", false); ?>
+        </select>
+    </div>
+    <div id="international-orders-tax" class="international-orders-tax" <?php echo ($this->getSelectedCountry() !== $this->getDefaultStoreCountry()) ? '' : 'style="display:none;"' ?>>
+        <?php echo $this->__('*Please note that custom or import duty fees may apply. '); ?><a href="/faq/international-orders" target="_blank" alt="Customs and import duty fees"><?php echo $this->__('Click here for more info'); ?></a>
+    </div>
+    <div class="form-label"><?php echo $this->__('Delivery Address'); ?></div>
+    <input
+        id="delivery-address"
+        type="text"
+        placeholder=""
+    />
+
+    <?php echo $this->getChildHtml("checkout.delivery-address", false); ?>
+    <?php echo $this->getChildHtml("checkout.billing-address", false); ?>
+</div>

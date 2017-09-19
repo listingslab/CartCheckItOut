@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <aligent translate="label">
+            <label>Aligent</label>
+            <sort_order>9999</sort_order>
+        </aligent>
+    </tabs>
+    <sections>
+        <aligent_cartcheckitout translate="label">
+            <label>Cart Checkitout</label>
+            <tab>aligent</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <varnishcache_enabled translate="label">
+                            <label>Is Varnish cache enabled</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </varnishcache_enabled>
+                        <emarsys_enabled translate="label">
+                            <label>Is Emarsys module enabled</label>
+                            <sort_order>25</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </emarsys_enabled>
+                        <google_maps_api_url translate="label">
+                            <label>Google Maps API URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This is a Google Maps URL for address validation.</comment>
+                        </google_maps_api_url>
+                        <default_payment_method translate="label">
+                            <label>Default payment method</label>
+                            <sort_order>40</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>aligent_cartcheckitout/source_payment_methods</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_payment_method>
+                    </fields>
+                </settings>
+                <shipping_methods>
+                    <label>Shipping Methods</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <national_free_shippingmethod translate="label comment">
+                            <label>National - Free Shipping Method</label>
+                            <comment>The shipping method to use for national orders over $100.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>aligent_cartcheckitout/source_shipping_methods</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </national_free_shippingmethod>
+                        <national_nonfree_shippingmethod translate="label comment">
+                            <label>National - non-Free Shipping Method</label>
+                            <comment>The shipping method to use for national orders under $100.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>aligent_cartcheckitout/source_shipping_methods</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </national_nonfree_shippingmethod>
+                        <international_shippingmethod translate="label comment">
+                            <label>International - non-Free Shipping Method</label>
+                            <comment>The shipping method to use for international orders.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>aligent_cartcheckitout/source_shipping_methods</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </international_shippingmethod>
+                    </fields>
+                </shipping_methods>
+            </groups>
+        </aligent_cartcheckitout>
+    </sections>
+</config>

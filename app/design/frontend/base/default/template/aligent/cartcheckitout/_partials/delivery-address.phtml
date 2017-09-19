@@ -1,0 +1,99 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/delivery-address.phtml
+ *
+ */
+?>
+
+<div class="delivery-address">
+
+    <div id="authority_to_leave_group" <?php echo ($this->canShowATL()) ? '' : 'style="display:none;"' ?>>
+        <div class="authority-checkbox">
+            <input
+                title="Authority to leave"
+                type="checkbox"
+                class="checkbox"
+                id="authority-to-leave"
+                <?php echo ($this->isATLChecked()) ? 'checked' : ''; ?>
+            />
+            <label for="authority-to-leave"><?php echo $this->__('Authority to leave'); ?></label>
+        </div>
+        <div class="authority-instructions" <?php echo (!$this->isATLChecked()) ? 'style="display:none;"' : ''; ?>>
+            <input
+                id="input-authority"
+                class="required-input"
+                type="text"
+                placeholder="<?php echo $this->__('Tell us a safe place to leave your parcel'); ?>"
+                maxlength="30"
+                value="<?php echo $this->getATLInstructions(); ?>"
+            />
+        </div>
+    </div>
+
+    <div class="delivery-address-not-found">
+        <?php echo $this->__('Your address not there?'); ?> <a href="#" id="address-not-found" class="black-link"><?php echo $this->__('Click here'); ?></a>
+    </div>
+
+    <div class="delivery-address-manual-entry">
+        <div class="form-label"><?php echo $this->__('Street Address'); ?></div>
+        <input
+            id="delivery-street-address"
+            class="required-input"
+            type="text"
+            autocomplete="street-address"
+            maxlength="28"
+        />
+        <div class="form-label"><?php echo $this->__('City'); ?></div>
+        <input
+            id="delivery-city"
+            class="required-input"
+            type="text"
+            autocomplete="address-level2"
+        />
+
+        <div class="form-label"><?php echo $this->__('State'); ?></div>
+        <select id="delivery-state-select"></select>
+        <input
+            id="delivery-state-text"
+            class="required-input"
+            type="text"
+            autocomplete="address-level1"
+        />
+
+        <div class="form-label"><?php echo $this->__('Postcode'); ?></div>
+        <input
+            id="delivery-postcode"
+            class="required-input"
+            type="text"
+            autocomplete="postal-code"
+        />
+    </div>
+
+    <div class="business-name">
+        <div class="form-label"><?php echo $this->__('Business Name'); ?> - <em><?php echo $this->__('Optional'); ?></em></div>
+        <input
+            id="business-name"
+            class="input-text-field"
+            type="text"
+        />
+    </div>
+
+    <div class="telephone">
+        <div class="form-label"><?php echo $this->__('Phone Number'); ?></div>
+        <input
+            id="delivery-telephone"
+            class="input-text-field"
+            type="text"
+            autocomplete="tel"
+        />
+    </div>
+
+</div>

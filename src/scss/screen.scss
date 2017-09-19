@@ -1,0 +1,125 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/screen.scss
+ * Main Sass entry point...
+ *
+ */
+@import 'variables';
+@import 'layout';
+@import 'mixins/icon';
+@import 'partials/cart-shipping-banner';
+@import 'partials/country-select';
+@import 'partials/delivery';
+@import 'partials/directpost-credit-card';
+@import 'partials/field_validity';
+@import 'partials/forms';
+@import 'partials/giftcard';
+@import 'partials/headers';
+@import 'partials/loading';
+@import 'partials/payment-options';
+@import 'partials/newsletter';
+@import 'partials/orderitem';
+@import 'partials/promocode';
+@import 'partials/social-connect';
+@import 'partials/summary';
+@import 'partials/totals';
+@import 'partials/previouscart';
+
+.swg {
+  .swg-cart, .swg-checkout {
+    display: none;
+    :focus {
+      outline:none;
+    }
+    a {
+      color: $colour-black;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: $colour-link-over;
+      text-decoration: underline;
+    }
+  }
+  .red-text {
+    color: $colour-pink;
+  }
+  .green-text {
+    color: $colour-green;
+  }
+  .blue-text {
+    color: $colour-brand;
+  }
+  .email {
+    display: none;
+  }
+  .password {
+    display: none;
+
+    #password-forgotten-loading {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    #password-forgotten {
+      #password-forgotten-text {
+        &.success {
+          color: $colour-text;
+        }
+
+        &.error {
+          color: $colour-pink;
+        }
+      }
+
+      #btn-password-retry {
+        margin-top:15px;
+      }
+
+      padding: 20px 0;
+    }
+
+    .checkout-as-guest {
+      margin-top: 15px;
+      font-size: 0;
+
+      span {
+        width: 50%;
+        display:inline-block;
+        font-size: ($base-font-size - 2px);
+
+        &.forgotten-password {
+          text-align:left;
+        }
+
+        &.guest-checkout {
+          text-align: right;
+        }
+      }
+    }
+    .social-table{
+      margin-top: 15px;
+    }
+  }
+  .checkout-error {
+    display: none;
+    color: $colour-pink;
+    margin-left: 5px;
+    margin-bottom: 15px;
+  }
+
+  .previouscart {
+    display: none;
+  }
+  .delivery {
+    display: none;
+  }
+  .payment {
+    display: none;
+  }
+}

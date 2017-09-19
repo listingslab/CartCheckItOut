@@ -1,0 +1,58 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_giftcard.scss
+ *
+ */
+
+.swg {
+
+  .giftcard {
+    margin-bottom:25px;
+
+    .giftcard-loading{
+      display: none;
+    }
+
+    .gift-feedback{
+      color: $colour-pink;
+      margin-top:5px;
+      font-size: 14px;
+    }
+
+    .gift-success{
+      color: $colour-green;
+      font-size: 14px;
+    }
+
+    .gift-submitter{
+      min-width: 100px;
+      img {
+        margin-top:20px;
+        margin-left:40px;
+      }
+    }
+
+
+    .gift {
+      display: flex;
+      input[type="text"] {
+        margin: 0;
+      }
+      .input-gift{
+        flex: 4;
+        margin-right:10px;
+      }
+      .submit-gift{
+        min-width: 100px;
+        flex: 1;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

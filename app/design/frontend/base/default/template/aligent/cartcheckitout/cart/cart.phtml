@@ -1,0 +1,87 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-checkitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/checkitout/cart/cart.phtml
+ * Cart page template
+ *
+ */
+?>
+
+<!-- Instantiate JavaScript nameSpace & pass params to the App -->
+<script type="text/javascript">
+  if(typeof CartCheckItOut === 'undefined') {
+    var CartCheckItOut = {
+      'imagePath': '<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/'); ?>',
+      'mode': 'cart'
+    };
+  }
+</script>
+<div class="swg">
+    <div class="swg-cart">
+
+        <div class="swg-cart-title">
+            <h1><?php echo $this->__('Shopping Bag') ?></h1>
+        </div>
+
+        <div id="swg-cart-empty" <?php echo (!$this->isCartEmpty()) ? 'style="display:none;"' : ''; ?>>
+            <?php echo $this->getChildHtml("cart.empty"); ?>
+        </div>
+
+        <div id="swg-cart-contents">
+            <?php if(!$this->isCartEmpty()): ?>
+                <div class="formkey">
+                    <?php echo $this->getBlockHtml('formkey') ?>
+                </div>
+                <strong id="swg-cart-totalitems"><?php echo $this->getCartCount() .' '. (($this->getCartCount() == 1) ? $this->__('Item') : $this->__('Items')); ?></strong>
+                <div class="flex-grid-thirds">
+                    <div class="flex-grid-thirds-col-2 cart-pad">
+                        <div class="flex-cart-items">
+                            <?php foreach ($this->getCartItems() as $item):
+                                echo $this->getLayout()
+                                    ->createBlock('aligent_cartcheckitout/product_panel')
+                                    ->setData('cartproduct', $item)
+                                    ->setData('cart', true)
+                                    ->setTemplate('aligent/cartcheckitout/_partials/product-panel.phtml')
+                                    ->toHtml();
+                            endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="flex-grid-thirds-col-1">
+                        <div class="country-select">
+                            <div class="form-label"><?php echo $this->__('Shipping'); ?> <span class="form-label-subtext"><?php echo $this->__('*All our parcels are sent EXPRESS*'); ?></span>
+                            </div>
+                            <select id="select-shipping">
+                                <?php echo $this->getChildHtml("cart.countries", false); ?>
+                            </select>
+                        </div>
+                        <div id="international-orders-tax" class="international-orders-tax" <?php echo ($this->getSelectedCountry() !== $this->getDefaultStoreCountry()) ? '' : 'style="display:none;"' ?>>
+                            <?php echo $this->__('*Please note that custom or import duty fees may apply. '); ?><a href="/faq/international-orders" target="_blank" alt="Customs and import duty fees"><?php echo $this->__('Click here for more info'); ?></a>
+                        </div>
+                        <?php echo $this->getChildHtml("cart.promo-code", false); ?>
+                        <?php echo $this->getChildHtml("cart.gift-card", false); ?>
+                        <?php echo $this->getChildHtml("cart.shipping-banner", false); ?>
+                        <?php echo $this->getChildHtml("cart.totals", false); ?>
+                        <input
+                            class="proceed-input"
+                            value="<?php echo $this->__('PROCEED TO CHECKOUT'); ?>"
+                            id="cart-proceed"
+                            type="button"
+                        />
+                        <div class="proceed-loading">
+                            <img
+                                alt="Loading checkout..."
+                                src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('checkout.cart.crosssell') ?>
+</div>

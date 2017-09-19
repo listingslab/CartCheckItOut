@@ -1,0 +1,57 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_partials/_delivery.scss
+ *
+ */
+
+.swg {
+
+  .delivery-address {
+
+    .authority-checkbox{
+      margin-bottom: 15px;
+      label {
+        padding-top: 2px;
+      }
+    }
+
+    .delivery-address-not-found{
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .billing-address-checkbox{
+    text-align: center;
+  }
+
+  .billing-address {
+
+    .billing-address-checkbox{
+      label {
+        padding-top: 2px;
+      }
+    }
+
+    .billing-address-not-found {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  .billing-address-hidden{
+    margin-top: 15px;
+  }
+
+  .first-name-pad {
+    margin-top: 2px;
+  }
+}

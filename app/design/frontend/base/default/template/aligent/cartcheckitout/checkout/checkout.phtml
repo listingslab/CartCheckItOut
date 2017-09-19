@@ -1,0 +1,73 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-checkitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/checkout/checkout.phtml
+ *
+ *
+ */
+
+$billingCountryCode = Mage::helper('aligent_cartcheckitout/customer')->getBillingCountry();
+$shippingCountryCode = Mage::helper('aligent_cartcheckitout/customer')->getShippingCountry();
+
+// Check that the shipping method is the same as billing.
+$sameAsShipping = Mage::helper('aligent_cartcheckitout/quote')->isSameAsBilling();
+
+if ($sameAsShipping) {
+    // If they are the same, set billing to be shipping since checkout has shipping as the source.
+    $billingCountryCode = $shippingCountryCode;
+}
+
+?>
+
+<!-- Instantiate JavaScript nameSpace & pass params to the App -->
+<script type="text/javascript">
+
+  if(typeof CartCheckItOut === 'undefined') {
+    var CartCheckItOut = {
+      'mode': 'checkout',
+      'loggedIn': <?php echo ($this->isLoggedIn() || $this->isGuestSet()) ? 1 : 0; ?>,
+      'email': '<?php echo $this->getQuotesEmail(); ?>',
+      'customer': <?php echo $this->getCustomerDetails(true); ?>,
+      'guestcheckout': <?php echo $this->guestCheckoutEnabled() ? 1 : 0; ?>,
+      'paymentOption': '<?php echo $this->getSelectedPaymentMethod(); ?>',
+      'imagePath': '<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/'); ?>',
+      'regionJson': <?php echo $this->helper('directory')->getRegionJson() ?>,
+      'afterpayenabled': <?php echo (Mage::helper('swimwear_base')->isAfterPayEnabled()) ? 1 : 0; ?>,
+      'billingCountry': '<?php echo $billingCountryCode; ?>',
+      'deliveryCountry': '<?php echo $shippingCountryCode; ?>',
+      'billingStates': '<?php echo (in_array($billingCountryCode, $this->helper('directory')->getCountriesWithStatesRequired())) ? 'select' : 'text'; ?>',
+      'deliveryStates': '<?php echo (in_array($shippingCountryCode, $this->helper('directory')->getCountriesWithStatesRequired())) ? 'select' : 'text'; ?>',
+      'shippingAsBilling': <?php echo ($sameAsShipping) ? 1 : 0; ?>,
+      'authorityToLeave': <?php echo (Mage::helper('aligent_cartcheckitout/quote')->getATL()) ? 1 : 0; ?>
+    };
+  }
+</script>
+<script type="text/javascript" src="<?php echo $this->getGoogleMapsUrl(); ?>"></script>
+<div class="swg">
+    <div class="formkey">
+        <?php echo $this->getBlockHtml('formkey') ?>
+    </div>
+    <div class="swg-checkout">
+        <div class="flex-grid">
+            <div class="flex-grid-col-equal col-middle" id="middle">
+                <?php echo $this->getChildHtml("checkout.email", false); ?>
+                <?php echo $this->getChildHtml("checkout.password", false); ?>
+                <?php echo $this->getChildHtml("checkout.previouscart", false); ?>
+                <?php echo $this->getChildHtml("checkout.delivery", false); ?>
+            </div>
+            <div class="flex-grid-col-equal col-right" id="right">
+                <?php echo $this->getChildHtml("checkout.payment", false); ?>
+            </div>
+            <div class="flex-grid-col-equal col-left" id="left">
+                <?php echo $this->getChildHtml("checkout.summary", false); ?>
+            </div>
+        </div>
+    </div>
+</div>

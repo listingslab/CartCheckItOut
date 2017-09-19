@@ -1,0 +1,60 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/_partials/payment-options.phtml
+ *
+ */
+?>
+
+<div class="payment-options">
+    <?php echo $this->__('How would you like to pay?'); ?>
+    <?php
+        $methods = Mage::helper('aligent_cartcheckitout/quote')->getPaymentMethods();
+        $oneMethod = count($methods) <= 1;
+
+        $noPaymentStyle = 'none';
+        if (empty($methods)) {
+            $noPaymentStyle = 'block';
+        }
+    ?>
+
+    <div id="no-payment-methods" style="display:<?php echo $noPaymentStyle; ?>">
+        <p><?php echo $this->__('No Payment Methods'); ?></p>
+    </div>
+    <div id="method-buttons" class="method-buttons">
+    <?php foreach ($methods as $_method):
+        $_code = $_method->getCode(); ?>
+        <div class="btn-method" id="button-<?php echo $_code; ?>">
+            <?php if ($_method->getCode() == "free"): ?>
+                <p><?php echo $_method->getTitle(); ?></p>
+            <?php else: ?>
+                <img
+                        class="payment-option"
+                        alt="<?php echo $this->escapeHtml($_method->getTitle()); ?>"
+                        height="57"
+                        id="<?php echo $_code; ?>"
+                        src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/payment/'.$_code.'.png'); ?>"
+                />
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+        <div id="button-clear" style="clear: both"></div>
+    </div>
+    <div id="method-htmls" class="method-htmls">
+        <?php foreach ($methods as $_method):
+            $_code = $_method->getCode(); ?>
+            <div class="method-html" id="method-<?php echo $_code; ?>">
+                <?php echo $this->getMethodLabelAfterHtml($_method); ?>
+                <?php echo $this->getPaymentMethodFormHtml($_method); ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="payment-separator"></div>
+</div>

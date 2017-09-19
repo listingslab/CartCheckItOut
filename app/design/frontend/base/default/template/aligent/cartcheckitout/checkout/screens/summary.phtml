@@ -1,0 +1,45 @@
+<?php
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * /app/design/frontend/base/default/template/aligent/cartcheckitout/checkout/screens/summary.phtml
+ *
+ */
+?>
+
+<div class="summary">
+    <h1 class="checkout-title"><?php echo $this->__('Order Summary'); ?></h1>
+
+    <div class="summary-loading flexgrid">
+        <div class="flexgrid-col flex-center" id="shipping-banner-content">
+            <img
+                alt="loading..."
+                src="<?php echo $this->getSkinUrl('images/aligent/cartcheckitout/ajax-loader_blue.gif'); ?>" />
+            &nbsp;&nbsp;<?php echo $this->__('Updating summary ...'); ?>
+        </div>
+    </div>
+
+    <div id="summary-num-items" class="num-items">
+        <?php echo $this->getCartCount() .' '. (($this->getCartCount() == 1) ? $this->__('Item') : $this->__('Items')); ?>
+    </div>
+    <div id="summary-content">
+        <?php foreach ($this->getCartItems() as $item):
+            echo $this->getLayout()
+                ->createBlock('aligent_cartcheckitout/product_panel')
+                ->setData('cartproduct', $item)
+                ->setTemplate('aligent/cartcheckitout/_partials/product-panel.phtml')
+                ->toHtml();
+        endforeach; ?>
+    </div>
+
+    <div class="back-to-bag">
+        <a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>">&larr; <?php echo $this->__('Shopping Bag'); ?></a>
+    </div>
+</div>
+

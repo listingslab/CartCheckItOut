@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Mage
+ * @package    Aligent_CartCheckItOut
+ * @author     chris.dorward@aligent.com.au
+ */
+ -->
+<config>
+    <modules>
+        <Aligent_CartCheckItOut>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Aligent_Directpost/>
+                <Mage_Checkout/>
+                <Inchoo_SocialConnect/>
+            </depends>
+        </Aligent_CartCheckItOut>
+    </modules>
+</config>

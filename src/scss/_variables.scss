@@ -1,0 +1,93 @@
+/**
+ * Aligent CartCheckItOut
+ *
+ * @category   Aligent
+ * @package    aligent-cartcheckitout
+ * @copyright  Copyright (c) 2017 Aligent
+ * @author     Chris Dorward <chris.dorward@aligent.com.au>
+ *
+ * src/scss/_variables.scss
+ *
+ */
+
+// transition duration
+$trans-duration: 750ms;
+
+$spacing: 2%;
+
+// Colours
+$colour-bag-rollover: #3fb4e9;
+$grey-mid: #d1d2d2;
+$grey-link: #93969b;
+$colour-brand: #46b5e5;
+$colour-brand-light: #46b5e5;
+$colour-brand-dark: #0058a1;
+$colour-pink: #fd001b;
+$colour-green: #66ce35;
+$colour-text: #000;
+$colour-white: #fff;
+$colour-headings: #000;
+$colour-headings-underline: #46b5e5;
+$colour-border: #e3e4e6;
+$colour-link: $colour-brand-light;
+$colour-link-over: $colour-brand-dark;
+$colour-form-label-subtext: #7c7c7c;
+$colour-payment-bg: #e9e9e9;
+$colour-button: $colour-brand-dark;
+$colour-button-over: $colour-brand-light;
+$colour-danger: $colour-brand;
+$colour-warning: $colour-brand;
+$colour-info: $colour-brand-dark;
+$colour-success: $colour-brand-dark;
+$brand-color-1: #41b5e7;
+$brand-color-1-highlight: #93c1e7;
+$brand-color-2: #00469e;
+$white: #ffffff;
+$black: #000000;
+$grey: #95989a;
+$grey-mid-dark: #d7d9da;
+$grey-mid: #d1d2d2;
+$grey-dark: #57595a;
+$grey-light-mid: #e5e6e6;
+$grey-light: rgba(204,204,204, 0.2);  // with 20% opacity
+$grey-light-alt: #CCCCCC;
+$grey-text: #95989a;
+$green-button: #63D104;
+$grey-another: #F2F2F2;
+$red: #e60303;
+$error-red: #F40000;
+$coral: #f88379;
+$colour-brand-dark: #0058A1;
+$colour-brand-light: #46b5E5;
+$colour-border: #E3E4E6;
+$colour-payment-bg:#E9E9E9;
+$blue-button: $colour-brand-dark;
+$blue-button-over: $colour-brand-light;
+$colour-black: #000;
+
+// Type
+$base-color: $black;
+$base-font-size: 16px;
+$base-font-weight: 400;
+$line-height: 1.4em;
+$icon-font: 'FontAwesome';
+
+// Layout
+$gutter: 30px;
+$gutter-small: 16px;
+$full-width: 1280px;
+$max-width: 1077px;
+$max-width-pad: $max-width + ($gutter * 2);
+$spacing: 2%;
+
+// Animation
+$base-transition-time: 200ms;
+
+// Responsive
+
+$responsive-enabled: true;
+// Used for major changes e.g. font-size / heading collapse / nav change etc
+
+// Responsive
+$medium: 1024px;
+$small: 550px;
